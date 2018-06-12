@@ -1,0 +1,46 @@
+import React from 'react';
+
+class ButtonDiv extends React.Component  {
+  constructor(){
+    super();
+    this.State = {
+      value: ''
+      
+    }
+    
+  }
+  afterClick(e) {
+    this.setState({value: e.target.value})
+  }
+  
+  render() {
+    return (<div id ="clickWorker" >
+      <span id="displayTxt" contenteditable="true" update={this.updae.bind(this)}>{this.state.value}</span>
+       {ListItems }
+        </div>
+    );
+  }
+  
+}
+const eachButton = ['AC','X2','%','/',7,8,9,'+',4,5,6,'-',1,2,3,'*',0,'.','='];
+const ListItems =(props) => eachButton.map((arr) =>
+        (arr===0) ? <button className="button btnZ" onClick={props.update} value={arr}>{arr}</button> : 
+                  ((arr === 'AC'||arr === 'X2'||arr === '%') ? <button className="button btnDG" onClick={props.update} value={arr}>{arr}</button> :
+                    ( (arr === '/'||arr === '+'||arr === '-'||arr === '*'||arr === '=') ? <button className = "button btnO" onClick={props.update} value={arr}> {arr} </button> :    
+                     <button className="button btnG" onClick={props.update} value={arr}>{arr} </button>
+                    ) 
+                  )
+);
+
+
+export default ButtonDiv;
+
+const ButtonDiv = (props) => <div id ="clickWorker"> {ListItems} </div>
+const eachButton = ['AC','X2','%','/',7,8,9,'+',4,5,6,'-',1,2,3,'*',0,'.','='];
+const ListItems = eachButton.map((arr) => 
+          (arr===0) ? <button className="button btnZ" value={arr}>{arr}</button> : 
+                  ((arr === 'AC'||arr === 'X2'||arr === '%') ? <button className="button btnDG" value = {arr}> {arr} </button> :
+                    ((arr === '/'||arr === '+'||arr === '-'||arr === '*'||arr === '=') ? <button className = "button btnO"  value={arr}> {arr} </button> :    
+                     <button className="button btnG" value={arr}>{arr} </button>
+                    ) 
+                  ));
